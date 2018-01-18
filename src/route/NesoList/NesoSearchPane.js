@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ReactTable from 'react-table';
 import { withRouter } from 'react-router-dom';
 import { Checkbox, Accordion, Label, Panel, Glyphicon, Badge } from 'react-bootstrap';
 
@@ -74,7 +73,7 @@ class NesoSearchPane extends React.Component {
       delete selectedKeys[type][key];
 
       const current = param.getAll(type);
-      const removed = Array.from(new Set(current)).filter(k => k != key);
+      const removed = Array.from(new Set(current)).filter(k => k !== key);
 
       param.delete(type);
       for (const k of removed) {
@@ -96,9 +95,9 @@ class NesoSearchPane extends React.Component {
     const sizes   = Object.keys(this.state.selectedKeys.size);
 
     for (const c of neso ? neso.nesoes : []) {
-      const member_matched = members.length == 0 ? 1 : members.filter(f => f === c.member.name).length != 0;
-      const series_matched = series.length  == 0 ? 1 : series.filter(f => f === c.series.series).length != 0;
-      const sizes_matched  = sizes.length   == 0 ? 1 : sizes.filter(f => f === c.series.size).length != 0;
+      const member_matched = members.length === 0 ? 1 : members.filter(f => f === c.member.name).length !== 0;
+      const series_matched = series.length  === 0 ? 1 : series.filter(f => f === c.series.series).length !== 0;
+      const sizes_matched  = sizes.length   === 0 ? 1 : sizes.filter(f => f === c.series.size).length !== 0;
 
       if (member_matched && series_matched && sizes_matched) {
         filtered.push(c);
@@ -106,7 +105,7 @@ class NesoSearchPane extends React.Component {
     }
 
     const terms = [...members, ...series, ...sizes];
-    const selectedKeysLabel = terms.length == 0
+    const selectedKeysLabel = terms.length === 0
       ? "すべての寝そべり"
       : terms.map(l => `"${l}"`).join(", ") + " の寝そべり";
 

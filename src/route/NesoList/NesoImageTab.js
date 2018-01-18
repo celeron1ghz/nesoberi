@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ReactTable from "react-table";
 import { Glyphicon, Thumbnail, Col } from 'react-bootstrap';
 
 class NesoImageTab extends React.Component {

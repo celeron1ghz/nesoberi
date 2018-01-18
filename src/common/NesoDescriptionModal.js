@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Modal, Carousel, Button, Label } from 'react-bootstrap';
-import { Line, Pie } from 'react-chartjs-2';
+import { Modal, Carousel, Label } from 'react-bootstrap';
+//import { Line, Pie } from 'react-chartjs-2';
 
 import NesoDataLoader from '../data/NesoDataLoader';
 import IconLabel      from './NesoMemberIconLabel';
@@ -97,7 +97,7 @@ class NesoDescriptionModal extends React.Component {
                       <span key={s}>
                         <Label style={{
                           border: "1px solid gray",
-                          backgroundColor: series.size == s ? member.color : "#eee",
+                          backgroundColor: series.size === s ? member.color : "#eee",
                         }}>{s}</Label>
                         {' '}
                       </span>

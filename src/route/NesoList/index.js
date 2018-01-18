@@ -1,5 +1,4 @@
 import React from 'react';
-import { render } from 'react-dom';
 import { Glyphicon, Col, Nav, NavItem } from 'react-bootstrap';
 
 import NesoListTab          from './NesoListTab';
@@ -54,17 +53,17 @@ class IndexRoute extends React.Component {
           <NesoSearchPane neso={neso} onChange={this.updateMemberList}/>
           <Col>
             <Nav bsStyle="pills" activeKey="" onSelect={this.changeNesoTab}>
-              <NavItem eventKey="thumbnail" active={selectedNesoTab == "thumbnail"}><Glyphicon glyph="picture" /> 画像で表示</NavItem>
-              <NavItem eventKey="list" active={selectedNesoTab == "list"}><Glyphicon glyph="list" /> 表で表示</NavItem>
+              <NavItem eventKey="thumbnail" active={selectedNesoTab === "thumbnail"}><Glyphicon glyph="picture" /> 画像で表示</NavItem>
+              <NavItem eventKey="list" active={selectedNesoTab === "list"}><Glyphicon glyph="list" /> 表で表示</NavItem>
             </Nav>
           </Col>
           <br/>
           {
-            selectedNesoTab == "thumbnail" &&
+            selectedNesoTab === "thumbnail" &&
               <NesoImageTab data={filteredMembers} onClick={this.open}/>
           }
           {
-             selectedNesoTab == "list" &&
+             selectedNesoTab === "list" &&
               <NesoListTab data={filteredMembers} onRowClick={this.open}/>
           }
           <NesoDescriptionModal selectedNeso={selectedNeso} onClose={this.close}/>

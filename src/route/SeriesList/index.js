@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactTable from "react-table";
-import { Glyphicon, Badge, Col, Panel, ListGroup, ListGroupItem, Label } from 'react-bootstrap';
+import { Glyphicon, Badge, Col, Panel, ListGroup, ListGroupItem } from 'react-bootstrap';
 
 import NesoDataLoader       from '../../data/NesoDataLoader';
 import NesoDescriptionModal from '../../common/NesoDescriptionModal'
@@ -47,10 +47,10 @@ class SeriesListRoute extends React.Component {
                 <ListGroup fill>
                   {
                     Object.entries(neso.group2uniqSeries[group]).map(s1 => {
-                      const [key, same_series] = s1;
+                      const [,same_series] = s1;
 
                       return Object.entries(same_series).map(s2 => {
-                        const [size, serieses] = s2;
+                        const [,serieses] = s2;
                       
                         return [serieses[0]].map(s => {
                           console.log()
