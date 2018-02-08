@@ -47,7 +47,15 @@ class NesoListTab extends React.Component {
             Cell: row => row.value 
               ? <span>￥{row.original.series.price_commify}- (税込)</span>
               : <span style={{ color: "#bbb" }}>(プライズ)</span>
-          },
+          },{
+            Header: "駿河屋",
+            accessor: "surugaya.price",
+            width: 100,
+            className: "text-center",
+            Cell: row => row.value
+              ? <span>￥{row.original.surugaya.price}-</span>
+              : <span style={{ color: "#bbb" }}>(在庫なし)</span>
+          }
         ]} />
     </div>
   }

@@ -1,5 +1,8 @@
 import NesoberiSeries from './NesoSeriesData'
 import NesoberiMembers from './NesoMembersData'
+import NesoSurugayaMapData from './NesoSurugayaMapData';
+
+import surugaya from './surugaya';
 
 export default () => {
   const nesoes = [];
@@ -38,6 +41,13 @@ export default () => {
       s.groups.list.push(m);
       s.groups.map[m.moniker] = m;
       series2uniqSeries[s.series][s.size][m.moniker] = item;
+
+      const map = NesoSurugayaMapData[s.series];
+      if (map) {
+        const url  = map.individial[m.moniker];
+        const info = surugaya[url];
+        item.surugaya = info;
+      }
     }
   }
 
