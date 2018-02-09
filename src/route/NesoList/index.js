@@ -25,7 +25,10 @@ class IndexRoute extends React.Component {
 
   componentDidMount() {
     // console.log(document.getElementById('loading').remove())
-    this.setState({ neso: NesoDataLoader() });
+    const self = this;
+    (async function(){
+      self.setState({ neso: await NesoDataLoader() });
+    })();
   }
 
   open(selectedNeso) {

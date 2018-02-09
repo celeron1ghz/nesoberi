@@ -14,7 +14,10 @@ class SeriesListRoute extends React.Component {
   }
 
   componentDidMount() {
-    this.setState({ neso: NesoDataLoader() });
+    const self = this;
+    (async function(){
+      self.setState({ neso: await NesoDataLoader() });
+    })();
   }
 
   open(selectedNeso) {
